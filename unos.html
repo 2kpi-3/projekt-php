@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unos - RP Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="nav">
+        <div class="naslov">RP ONLINE</div>
+        <div class="linkovi">
+            <a href="index.php">Home</a>
+            <a href="clanak.php">Sport</a>
+            <a href="politik.php">Politik</a>
+            <a href="administrator.php">Administracija</a>
+            <a href="unos.html">Unos</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="content">
+            <div class="section">
+                <h2>Unos nove vijesti</h2>
+                <form id="newsForm" action="skripta.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                    <label for="title">Naslov:</label><br>
+                    <input type="text" id="title" name="title"><br>
+                    <span id="titleError" class="error"></span><br>
+
+                    <label for="summary">Kratki sažetak:</label><br>
+                    <textarea id="summary" name="summary" rows="3" cols="50"></textarea><br>
+                    <span id="summaryError" class="error"></span><br>
+
+                    <label for="content">Sadržaj:</label><br>
+                    <textarea id="content" name="content" rows="10" cols="50"></textarea><br>
+                    <span id="contentError" class="error"></span><br>
+
+                    <label for="category">Kategorija:</label><br>
+                    <select id="category" name="category">
+                        <option value="">Odaberite kategoriju</option>
+                        <option value="Politik">Politik</option>
+                        <option value="Sport">Sport</option>
+                    </select><br>
+                    <span id="categoryError" class="error"></span><br>
+
+                    <label for="image">Odaberite sliku:</label><br>
+                    <input type="file" id="image" name="image"><br>
+                    <span id="imageError" class="error"></span><br>
+
+                    <label for="display">Prikazati na stranici:</label>
+                    <input type="checkbox" id="display" name="display" value="yes"><br><br>
+
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © RP Digital GmbH | Alle Rechte vorbehalten
+    </div>
+
+    <script>
+        function validateForm() {
+            let valid = true;
+
+            const title = document.getElementById('title');
+            const summary = document.getElementById('summary');
+            const content = document.getElementById('content');
+            const category = document.getElementById('category');
+            const image = document.getElementById('image');
+
+            const titleError = document.getElementById('titleError');
+            const summaryError = document.getElementById('summaryError');
+            const contentError = document.getElementById('contentError');
+            const categoryError = document.getElementById('categoryError');
+            const imageError = document.getElementById('imageError');
+
+            title.classList.remove('invalid');
+            summary.classList.remove('invalid');
+            content.classList.remove('invalid');
+            category.classList.remove('invalid');
+            image.classList.remove('invalid');
+
+            titleError.innerHTML = '';
+            summaryError.innerHTML = '';
+            contentError.innerHTML = '';
+            categoryError.innerHTML = '';
+            imageError.innerHTML = '';
+
+
+            if (title.value.length < 5 || title.value.length > 30) {
+                valid = false;
+                title.classList.add('invalid');
+                titleError.innerHTML = 'Naslov vijesti mora imati 5 do 30 znakova';
+            }
+
+            if (summary.value.length < 10 || summary.value.length > 100) {
+                valid = false;
+                summary.classList.add('invalid');
+                summaryError.innerHTML = 'Kratki sadržaj vijesti mora imati 10 do 100 znakova';
+            }
+
+
+            if (content.value.trim() === '') {
+                valid = false;
+                content.classList.add('invalid');
+                contentError.innerHTML = 'Tekst vijesti ne smije biti prazan';
+            }
+
+            if (category.value === '') {
+                valid = false;
+                category.classList.add('invalid');
+                categoryError.innerHTML = 'Kategorija mora biti odabrana';
+            }
+
+
+            if (image.value === '') {
+                valid = false;
+                image.classList.add('invalid');
+                imageError.innerHTML = 'Slika mora biti odabrana';
+            }
+
+            return valid;
+        }
+    </script>
+
+</body>
+
+</html>

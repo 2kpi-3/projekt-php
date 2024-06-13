@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 2px solid #f7b500;
+    box-shadow: 0 1px 2px -2px gray;
+    text-transform: uppercase;
+}
+
+.nav .naslov {
+    margin-left: 16%;
+}
+
+.nav .linkovi {
+    margin-right: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.content {
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    background-color: #f7b500;
+    padding: 10px;
+    color: #fff;
+}
+
+.section label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.section input[type="text"],
+.section textarea,
+.section select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.section input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.section input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.section input[type="submit"] {
+    background-color: #f7b500;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.section input[type="submit"]:hover {
+    background-color: #e6a400;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+}
+
+.invalid {
+    border-color: red;
+}
+
+img {
+    max-width: 35%;
+    margin-left: 37%;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .content {
+        width: 95%;
+    }
+    .nav .linkovi {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .nav .naslov {
+        border-bottom: #e6a400 solid;
+        width: 100%;
+        justify-content: center;
+        margin-left: 0%;
+        text-align: center;
+        padding-bottom: 3px;
+    }
+}
